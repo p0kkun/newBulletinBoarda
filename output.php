@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+    require 'header.php'; ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -45,8 +49,8 @@
     </style>
 </head>
 <body>
-    <?php require 'header.php'; ?>
     <h2>掲示板</h2>
+    <p><a href="logout.php">ログアウト</a></p>
     <!-- メッセージを表示するコンテナ -->
     <div id="message-container">
     <?php
@@ -58,6 +62,7 @@
 $statement = $pdo->prepare($query);
 $statement->execute();
 $messages = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 foreach ($messages as $message) {
     $username = htmlspecialchars($message['username']);
     $messageText = htmlspecialchars($message['message_text']);
@@ -110,8 +115,7 @@ foreach ($messages as $message) {
     <!-- 新しいメッセージを投稿するフォーム -->
     <div class="message-form">
         <form id="message-form" method="POST" action="input.php">
-            <label>ユーザー名: </label>
-            <input type="text" name="username" required>
+            <label>ユーザー名: <?php echo $_SESSION['username']; ?></label><input type="hidden" name="username" value="<?php echo $_SESSION['username']; ?>">
             <label>メッセージ: </label>
             <textarea name="message_text" rows="4" cols="50" required></textarea>
             <input type="submit" name="submit" value="投稿">
