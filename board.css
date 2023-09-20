@@ -1,0 +1,91 @@
+body {
+    background: #76b852; /* fallback for old browsers */
+    background: rgb(141,194,111);
+    background: linear-gradient(90deg, rgb(94, 150, 61) 0%, rgb(139, 219, 95) 50%);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;      
+  }
+  h2{
+    text-align: center;
+    font-size: 50px;
+        -webkit-text-stroke: 2px rgb(255, 255, 255); /* Webkit (Safari, Chrome) 対応 */
+        text-stroke: 2px rgb(88, 50, 50); /* 通常のCSS */
+        color: rgb(0, 0, 0); /* テキストの色 */
+    }
+  .logout{
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+        z-index: 3;
+        padding: 10px;
+        border-top: 1px solid #f3f1f1;
+        background: linear-gradient(90deg, rgb(41, 44, 221) 0%, rgb(8, 30, 156) 50%);
+        color: #FFFFFF;
+        border-radius: 10px;
+  }
+    .message-form {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        padding: 10px;
+        border-top: 1px solid #f3f1f1;
+        background: linear-gradient(90deg, rgb(145, 253, 82) 0%, rgb(83, 194, 23) 50%);
+        text-align: center;
+    }
+
+    /* メッセージのスタイル */
+    .message {
+        font-size: 20px;
+        padding: 10px;
+        margin: 2px 0;
+        border: 1px solid #ccc;
+        position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 660px;
+  margin: 0 auto 10px;
+  padding: 45px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  font-family: "Roboto", sans-serif;
+    }
+
+    .message:nth-child(odd) {
+        background-color: #ffffff;
+        
+        /* ここで正しいカラーコードを指定 */
+    }
+    .message:nth-child(even) {
+        background-color: #d3d3d3;
+        
+        /* ここで正しいカラーコードを指定 */
+    }
+    #message-container {
+        margin-bottom: 120px;
+    }
+
+    .timestamp {
+        font-size: 12px;
+    }
+
+    .button {
+        padding: 0;
+        margin: 0;
+    }
+
+    .likes {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .dislikes {
+        margin: 0;
+    }
+
+    a.logout {
+        font-family: "Hannari";
+        font-size: 20px;
+    }

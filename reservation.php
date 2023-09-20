@@ -2,10 +2,11 @@
 require 'header.php';
 ?>
 <title>会員登録フォーム</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>会員登録フォーム</h2>
-    <form method="POST" action="reservation.php">
+    <!-- <h2 class="form">会員登録フォーム</h2> -->
+    <!-- <form method="POST" action="reservation.php">
         <label>ユーザー名: </label>
         <input type="text" name="username" required>
         <br>
@@ -13,7 +14,7 @@ require 'header.php';
         <input type="password" name="password" required>
         <br>
         <input type="submit" name="submit" value="登録">
-    </form>
+    </form> -->
     <?php
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
@@ -35,9 +36,14 @@ require 'header.php';
                 $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
                 $statement1->bindParam(':password', $hashedPassword);
                 $statement1->execute();
+                echo "<div class='login-page'>";
+                echo "<h2 class='form'>";
                 echo "会員登録が成功しました！";
+                echo "<br>";
                 echo "3秒後にログインページに飛びます";
-                header("refresh:3;url=login.php");
+                echo "</h2>";
+                echo "</div>";
+                header("refresh: 3; url=login.php");
             } catch (PDOException $e) {
                 echo "エラー: " . $e->getMessage();
             }
